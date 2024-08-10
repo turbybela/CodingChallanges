@@ -1,0 +1,68 @@
+using System;
+using System.CodeDom;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+namespace Challenge2
+{
+    internal class Challenge
+    {
+        public static Point? Challenge1(ConsoleKey key)
+        {
+            switch (key)
+            {
+                case ConsoleKey.W:
+                case ConsoleKey.UpArrow:
+                    return Point.Up;
+
+                case ConsoleKey.A:
+                case ConsoleKey.LeftArrow:
+                    return Point.Left;
+
+                case ConsoleKey.S:
+                case ConsoleKey.DownArrow:
+                    return Point.Down;
+
+                case ConsoleKey.D:
+                case ConsoleKey.RightArrow:
+                    return Point.Right;
+
+                default: return null;
+            }
+        }
+
+        static readonly Random r = new Random();
+        public static Point Challenge2(int width, int height)
+        {
+            return new Point(r.Next(width), r.Next(height));
+        }
+
+        public static Point Challenge3(ref List<Point> array, Point first)
+        {
+            if (array == null) return first;
+            if (array.Count == 0) return first;
+
+            Point last = array.Last();
+
+            for (int i = array.Count() - 1; i > 0; i--)
+            {
+                array[i] = array[i - 1];
+            }
+            array[0] = first;
+            return last;
+        }
+		
+        public static Point Challenge4(Point point, int width, int height)
+        {
+            point.x %= width;
+            point.y %= height;
+
+            if (point.x < 0) point.x = width + point.x;
+            if (point.y < 0) point.y = height + point.y;
+            return point;
+        }
+    }
+}
