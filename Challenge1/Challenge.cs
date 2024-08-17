@@ -33,6 +33,7 @@ namespace CodingChallenge
         ///     Returns a random element from the array,
         ///      or null in case array is empty or null. 
         /// </returns>
+        static Random r = new Random();
         public static string Challenge2(string[] array)
         {
             return null;

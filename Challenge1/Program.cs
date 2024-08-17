@@ -194,14 +194,15 @@ namespace CodingChallenge
                 bool t2p1 = Challenge.Challenge2(null) != null ||
                             Challenge.Challenge2(new string[0]) != null ||
                             !(new string[] { "a", "b", "c", "d", "e" }.Contains(Challenge.Challenge2(new string[] { "a", "b", "c", "d", "e" })));
-                bool t2p2w1 = false;
-                bool t2p2w2 = false;
+                
+                bool t2p2w1 = true;
+                bool t2p2w2 = true;
                 int t2p2t = 100;
-                while ((!t2p2w1 || !t2p2w1) && t2p2t > 0)
+                while ((t2p2w1 || t2p2w2) && t2p2t > 0)
                 {
                     string w = Challenge.Challenge2(new string[] { "a", "b", });
-                    if (w == "a") t2p2w1 = true;
-                    if (w == "b") t2p2w2 = true;
+                    if (w == "a") t2p2w1 = false;
+                    if (w == "b") t2p2w2 = false;
                     t2p2t--;
                 }
 
